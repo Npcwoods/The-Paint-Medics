@@ -23,6 +23,7 @@ export const SIGN_IN_PATH = "/login";
 
 /** Render children only when a user is present (real session, or the disabled-auth dev user). */
 export function SignedIn({ children }: { children: ReactNode }) {
+  const { user } = useCurrentUserState();
   return user ? <>{children}</> : null;
 }
 
@@ -59,7 +60,7 @@ export function SignInGate({
   const state = resolveSignInGateState({ isPending, hasUser: user !== null });
   if (state === "pending") return null;
   if (state === "signed_in") return <>{children}</>;
-  return <>{fallback ?? <SignInButtons />} />;
+  return <>{fallback ?? <SignInButtons />}</>;
 }
 
 export function SignInButtons() {
