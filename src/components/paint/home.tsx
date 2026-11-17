@@ -147,11 +147,11 @@ export function HomePage() {
 
   function quoteText(q: SavedQuote) {
     return [
-      `The Paint Medics \u00b7 ${q.ref}`,
-      `${q.jobName} \u00b7 ${q.vehicleName}`,
+      `The Paint Medics · ${q.ref}`,
+      `${q.jobName} · ${q.vehicleName}`,
       q.ride ? `Vehicle: ${q.ride}` : "",
-      `Driveway ballpark: ${money(q.mobile[0])}\u2013${money(q.mobile[1])}`,
-      `Typical shop: ${money(q.shop[0])}\u2013${money(q.shop[1])}`,
+      `Driveway ballpark: ${money(q.mobile[0])}–${money(q.mobile[1])}`,
+      `Typical shop: ${money(q.shop[0])}–${money(q.shop[1])}`,
       `ZIP ${q.zip}`,
       "Not a contract. A medic confirms color and access before anyone sprays.",
     ]
@@ -487,7 +487,7 @@ export function HomePage() {
                       <li key={item.ref} className="flex items-baseline justify-between gap-3 text-sm">
                         <span>
                           <span className="font-semibold">{item.ref}</span>
-                          <span className="text-steel"> \u00b7 {item.jobName}</span>
+                          <span className="text-steel"> · {item.jobName}</span>
                         </span>
                         <span className="tabular-nums text-steel">
                           {money(item.mobile[0])}–{money(item.mobile[1])}
